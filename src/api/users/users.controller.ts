@@ -12,17 +12,19 @@ export const getUserByIdController = async (
   req: Request,
   res: Response
 ) => {
-  const {id} = req.params;
+  const { id } = req.params;
 
   const user = await getUserById(id as string);
 
   if (!user) {
-    return res.status(404).json({
-      message: `User with ${id} not found`
-    })
+    return res
+      .status(404)
+      .json({
+        message: `User with ${id} not found`
+      })
   } 
 
-  return user;
+  return res.send(user);
 }
 
 export const createUsersController = async (req: Request, res: Response) => {
