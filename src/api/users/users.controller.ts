@@ -53,7 +53,7 @@ export const createUsersController = async (req: Request, res: Response) => {
     answer
   } = req.body as UserType;
 
-  if (!name || !commentary || !answer) { 
+  if (!name || !commentary || answer === undefined) { 
     return res.status(400).json({
       message: 'User data is required'
     });
