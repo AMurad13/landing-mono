@@ -9,3 +9,9 @@ export const createUser = async (userDto: UserType) => {
 
   return user;
 }
+
+export const getUserById = async (id: string) => {
+  const user = await UserModel.findById(id);
+
+  return user;
+}
