@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 import { usersRouter } from './users/users.route';
 import mongoose from 'mongoose';
 
@@ -12,6 +13,7 @@ const dbInit = async () => {
 
 const appInit = async () => {
   app.use(express.json());
+  app.use(cors());
 
   await dbInit();
 

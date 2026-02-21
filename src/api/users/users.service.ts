@@ -15,3 +15,9 @@ export const getUserById = async (id: string) => {
 
   return user;
 }
+
+export const removeUserById = async (id: string) => {
+  const user = await UserModel.findByIdAndDelete(id);
+
+  return user;
+}
