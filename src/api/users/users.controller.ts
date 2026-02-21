@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 import { createUser, getUsers } from './users.service';
 import { UserType } from '../models/user.model';
 
-export const getUsersController = (req: Request, res: Response) => {
-  const users = getUsers();
+export const getUsersController = async (req: Request, res: Response) => {
+  const users = await getUsers();
 
   res.send(users);
 }
