@@ -8,7 +8,7 @@ export const getUsersController = (req: Request, res: Response) => {
   res.send(users);
 }
 
-export const createUsersController = (req: Request, res: Response) => {
+export const createUsersController = async (req: Request, res: Response) => {
   const {
     name,
     commentary,
@@ -16,13 +16,13 @@ export const createUsersController = (req: Request, res: Response) => {
   } = req.body as UserType;
 
   if (!name || !commentary || !answer) { 
-    res.status(400).json({
+    return res.status(400).json({
       message: 'User data is required'
     });
   }
 
   try {
-    const createdUser = createUser(req.body);
+    const createdUser = await createUser(req.body);
     res.send(createdUser); 
   } catch(error) { res.status(500).json({ message: 'Server error' }) }
 }

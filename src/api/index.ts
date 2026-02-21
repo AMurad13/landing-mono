@@ -15,11 +15,11 @@ const appInit = async () => {
 
   await dbInit();
 
+  app.use('/users', usersRouter);
+
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
-
-  app.use('/users', usersRouter);
 };
 
 appInit();

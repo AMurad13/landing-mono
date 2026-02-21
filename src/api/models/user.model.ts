@@ -8,7 +8,7 @@ export interface UserType {
 
 const userSchema = new Schema<UserType>({
   name: { type: String, required: true, minLength: 2 },
-  commentary: { type: String, required: true, minLength: 10 },
+  commentary: { type: String, required: true, minLength: 5 },
   answer: { type: Boolean, required: true }
 })
 
